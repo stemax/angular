@@ -1,15 +1,25 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>My HTML File</title>
+  <title>Second lesson</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <script src="bower_components/angular/angular.js"></script>
+    <script>
+        var DemoCtrl = function ($scope)
+        {
+            $scope.name = 'AngularJS Student';
+            alert('Hello Angular JS');
+        }
+        angular.module('myApp', []).controller('DemoCtrl',DemoCtrl);
+    </script>
 </head>
-<body>
-
-  <p>Nothing here {{'yet' + '!'}}</p>
-
+<body ng-init="regards='Best Regards, Max'">
+    <div ng-controller="DemoCtrl" >
+        <p>Hello {{name + '!'}}</p>
+        <p>It's a second lesson...</p>
+    </div>
+    {{regards}}
 </body>
 </html>
