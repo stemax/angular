@@ -1,26 +1,19 @@
 <!doctype html>
 <html lang="en" ng-app="phonecatApp">
 <head>
-  <meta charset="utf-8">
-  <title>Second lesson</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
-  <script src="bower_components/angular/angular.js"></script>
-    <script>
-        var phonecatApp = angular.module('phonecatApp', []);
-        phonecatApp.controller('DemoCtrl',
-                function ($scope)
-                {
-                    $scope.name = 'AngularJS Student';
-                }
-        );
-    </script>
+    <meta charset="utf-8">
+    <title>Second lesson</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
 </head>
 <body ng-init="regards='Best Regards, Max'">
-    <div ng-controller="DemoCtrl" >
-        <p>Hello {{name + '!'}}</p>
-        <p>It's a second lesson...</p>
-    </div>
-    {{regards}}
+<div ng-controller="DemoCtrl">
+    <p>Hello {{name + '!'}}</p>
+
+    <p>It's a second lesson...</p>
+</div>
+{{regards}}
 </body>
 </html>
