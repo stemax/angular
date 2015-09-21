@@ -28,6 +28,17 @@
         </td>
     </tr>
 </table>
-
+<hr/>
+<ul>
+    <li>Currency: {{541 | currency}}</li>
+    <li>Date: {{123123123321 | date:'dd.MM.yyyy'}}</li>
+    <li>Number: {{12345.6789 | number:3}}</li>
+    <li>Lowercase: {{'My UPPER cAse striNg' | lowercase}}</li>
+    <li>Uppercase: {{'my lover cASE string' | uppercase}}</li>
+    <li>Json: <pre>{{phones}}</pre></li>
+</ul>
+<hr/>
+{{today | date: 'dd/MM/yyyy'}}
+{{'VeryVeryLongStringLine' | limitTo:10 | lowercase}}
 </body>
 </html>

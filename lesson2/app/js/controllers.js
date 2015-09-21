@@ -16,5 +16,10 @@ phonecatApp.controller( 'PhoneListCtrl', function ($scope)
             {'name': 'MOTOROLA XOOM™',
                 'snippet': 'The Next, Next Generation tablet.'}
         ]
+
+    //Filter
+    var date = new Date();
+    $scope.today = date;
+
 }
 );
