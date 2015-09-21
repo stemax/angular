@@ -8,12 +8,26 @@
     <script src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
 </head>
-<body ng-init="regards='Best Regards, Max'">
-<div ng-controller="DemoCtrl">
-    <p>Hello {{name + '!'}}</p>
+<body ng-controller="PhoneListCtrl">
+<h1>{{title}}</h1>
+<ul>
+    <li ng-repeat="phone in phones">
+        <span>
+            {{phone.name}}
+        </span>
+        <p>
+            {{phone.snippet}}
+        </p>
+    </li>
+</ul>
+<span>Total phones: {{phones.length}}</span>
+<table border="1" cellpadding="2" cellspacing="2">
+    <tr ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+        <td>
+            {{i+1}}
+        </td>
+    </tr>
+</table>
 
-    <p>It's a second lesson...</p>
-</div>
-{{regards}}
 </body>
 </html>
