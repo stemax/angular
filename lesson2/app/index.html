@@ -10,17 +10,28 @@
 </head>
 <body ng-controller="PhoneListCtrl">
 <h1>{{title}}</h1>
+
+<div>
+    Filter: <input type="text" ng-model="query"/>
+</div>
+
 <ul>
-    <li ng-repeat="phone in phones">
+    <!-- <li ng-repeat="phone in phones | filter:{name:query,status:true}"> -->
+    <li ng-repeat="phone in phones | filter:query">
         <span>
             {{phone.name}}
         </span>
         <p>
             {{phone.snippet}}
         </p>
+        <p>
+            {{phone.status}}
+        </p>
     </li>
 </ul>
 <span>Total phones: {{phones.length}}</span>
+<hr/>
+<h3>Ng-repeat</h3>
 <table border="1" cellpadding="2" cellspacing="2">
     <tr ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
         <td>
@@ -34,9 +45,50 @@
     <li>Date: {{123123123321 | date:'dd.MM.yyyy'}}</li>
     <li>Number: {{12345.6789 | number:3}}</li>
     <li>Lowercase: {{'My UPPER cAse striNg' | lowercase}}</li>
-    <li>Uppercase: {{'my lover cASE string' | uppercase}}</li>
+    <li>Uppercase: {{'my lower cASE string' | uppercase}}</li>
     <li>Json: <pre>{{phones}}</pre></li>
 </ul>
+<hr/>
+<h3>Orderby</h3>
+
+<table>
+    <tr>
+        <th>
+            <a href="" ng-click="sort('name')">Name</a>
+            <i class="glyphicon" ng-class="{
+            'glyphicon-chevron-up': isSortUp('name'),
+            'glyphicon-chevron-down': isSortDown('name')
+            }"></i>
+        </th>
+        <th>
+            <a href="" ng-click="sort('snippet')">Snippet</a>
+            <i class="glyphicon" ng-class="{
+            'glyphicon-chevron-up': isSortUp('snippet'),
+            'glyphicon-chevron-down': isSortDown('snippet')
+            }"></i>
+        </th>
+        <th>
+            <a href="" ng-click="sort('status')">Status</a>
+            <i class="glyphicon" ng-class="{
+            'glyphicon-chevron-up': isSortUp('status'),
+            'glyphicon-chevron-down': isSortDown('status')
+            }"></i>
+        </th>
+    </tr>
+    <tr ng-repeat="phone in phones | orderBy:sortField:reverse"> <!-- !sortField-->
+        <td>
+            {{phone.name}}
+        </td>
+        <td>
+            <p>{{phone.snippet}}</p>
+        </td>
+        <td>
+            <p>{{phone.status}}</p>
+        </td>
+        <td>
+    </tr>
+</table>
+
 <hr/>
 {{today | date: 'dd/MM/yyyy'}}
 {{'VeryVeryLongStringLine' | limitTo:10 | lowercase}}
