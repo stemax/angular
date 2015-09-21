@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="phonecatApp">
 <head>
   <meta charset="utf-8">
   <title>Second lesson</title>
@@ -7,12 +7,13 @@
   <link rel="stylesheet" href="css/app.css">
   <script src="bower_components/angular/angular.js"></script>
     <script>
-        var DemoCtrl = function ($scope)
-        {
-            $scope.name = 'AngularJS Student';
-            alert('Hello Angular JS');
-        }
-        angular.module('myApp', []).controller('DemoCtrl',DemoCtrl);
+        var phonecatApp = angular.module('phonecatApp', []);
+        phonecatApp.controller('DemoCtrl',
+                function ($scope)
+                {
+                    $scope.name = 'AngularJS Student';
+                }
+        );
     </script>
 </head>
 <body ng-init="regards='Best Regards, Max'">
