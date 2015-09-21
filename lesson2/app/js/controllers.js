@@ -4,9 +4,22 @@
 
 var phonecatApp = angular.module('phonecatApp', []);
 
-phonecatApp.controller( 'PhoneListCtrl', function ($scope)
+phonecatApp.controller( 'PhoneListCtrl', function ($scope, $http)
 {
     $scope.title = "Phones";
+
+    $http.get('phones/phones.json')
+        .success
+        (
+            function(data, status, headers, config){
+                console.log('This is data:',data,'\n\nThis is status:',status,'\n\nThis is headers:',headers,'\n\nThis is config:',config);
+                $scope.phones = data;
+            }
+        ).error(
+            function(){}
+        );
+
+    /*
     $scope.phones =
         [
             {'name': 'Nexus S',
@@ -21,6 +34,9 @@ phonecatApp.controller( 'PhoneListCtrl', function ($scope)
                 'snippet': 'The Next, Next Generation tablet.',
                 'status': true}
         ]
+    */
+
+
 
     //Filter
     var date = new Date();
